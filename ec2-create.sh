@@ -5,7 +5,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-if [ ! -e $HOME/code/aws/ami.env ]; then 
+if [ ! -e $HOME/code/ami.env ]; then 
     $HOME/code/aws/update-ami.sh
 fi
 . $HOME/code/ami.env

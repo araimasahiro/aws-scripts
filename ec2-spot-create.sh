@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 if [ ! -e $HOME/code/ami.env ]; then 
-    $HOME/code/update-ami.sh
+    $HOME/code/aws/update-ami.sh
 fi
 . $HOME/code/ami.env
 
@@ -45,9 +45,10 @@ else
 fi
 
 #sed -e "s/_PACKAGE_SYSTEM_/$PACKAGE_SYSTEM/g" -e "s/_ARCH_/$ARCH/g" ~/code/cloud-init-ec2-template.yaml > ~/code/cloud-init-ec2-"$1". yaml
-sed -e "s/_ARCH_/$ARCH/g" ~/code/cloud-init-ec2-template.yaml > ~/code/cloud-init-ec2-"$1".yaml
+sed -e "s/_ARCH_/$ARCH/g" ~/code/aws/cloud-init-ec2-template.yaml > ~/code/cloud-init-ec2-"$1".yaml
 CREATOR=masahiro.arai
-DEFAULT_SUBNET=subnet-0ecf3bf78d3c1991a #ar-private-subnet-1a
+#DEFAULT_SUBNET=subnet-0ecf3bf78d3c1991a #ar-private-subnet-1a 10.0.10.0/24
+DEFAULT_SUBNET=subnet-0af9bf39ed8127075 #ar-private-subnet-1c 10.0.30.0/24
 DEFAULT_SG=sg-02fc9e1067c9f6567 #ar-sg-default
 DATE=$(date +%Y-%m-%d)
 KEY_PAIR=key-masahiro2022-tokyo

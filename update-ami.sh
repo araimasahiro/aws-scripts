@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AMI_ENV_FILE="$HOME/code/aws/ami.env"
+AMI_ENV_FILE="$HOME/code/ami.env"
 REGION="ap-northeast-1"
 
 if [ -e "$AMI_ENV_FILE" ]; then
