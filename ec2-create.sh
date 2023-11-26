@@ -52,7 +52,8 @@ DEFAULT_SG=sg-02fc9e1067c9f6567 #ar-sg-default
 DATE=$(date +%Y-%m-%d)
 KEY_PAIR=key-masahiro2022-tokyo
 #PROFILE_ARN="arn:aws:iam::430027127626:instance-profile/AmazonSSMRoleForInstancesQuickSetup"
-PROFILE_NAME="AmazonSSMRoleForInstancesQuickSetup"
+#PROFILE_NAME="AmazonSSMRoleForInstancesQuickSetup"
+PROFILE_NAME="ar-role-S3RoleForEC2"
 
 #Default Value if $2,$3, $4, $5 are omitted
 #Instance-Type
