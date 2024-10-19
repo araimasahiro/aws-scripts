@@ -47,13 +47,13 @@ fi
 #sed -e "s/_PACKAGE_SYSTEM_/$PACKAGE_SYSTEM/g" -e "s/_ARCH_/$ARCH/g" ~/code/cloud-init-ec2-template.yaml > ~/code/cloud-init-ec2-"$1". yaml
 sed -e "s/_ARCH_/$ARCH/g" $HOME/code/aws/cloud-init-ec2-template.yaml > /tmp/cloud-init-ec2-"$1".yaml
 CREATOR=masahiro.arai
-DEFAULT_SUBNET=subnet-0ecf3bf78d3c1991a #ar-private-subnet-1a(10.0.10.0/24)
-DEFAULT_SG=sg-02fc9e1067c9f6567 #ar-sg-default
+DEFAULT_SUBNET=subnet-0ccffda49cc0c4fdd
+DEFAULT_SG=sg-09d9cd7bc7f8eebd8
 DATE=$(date +%Y-%m-%d)
-KEY_PAIR=key-masahiro2022-tokyo
+KEY_PAIR=key-arcloud2024
 #PROFILE_ARN="arn:aws:iam::430027127626:instance-profile/AmazonSSMRoleForInstancesQuickSetup"
 #PROFILE_NAME="AmazonSSMRoleForInstancesQuickSetup"
-PROFILE_NAME="ar-role-S3RoleForEC2"
+PROFILE_NAME="ar-role-CustomPowerUserAccessRoleForEC2"
 
 #Default Value if $2,$3, $4, $5 are omitted
 #Instance-Type
