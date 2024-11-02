@@ -20,13 +20,23 @@ for ARCH in x86_64 arm64; do
     | jq -r '.[]|[.ImageId, .Architecture, .Description] | @tsv')
     echo "# $_ret"
     echo "export AMI_AmazonLinux2_$ARCH=$(echo "$_ret" | awk -F'\t' '{print $1 " #" $3}')" >> "$AMI_ENV_FILE"
+    #Amazon Linux 2023
+    _ret=$(aws ec2 describe-images \
+    --region "$REGION" \
+    --query 'reverse(sort_by(Images, &CreationDate))[:1]' \
+    --owners amazon \
+    --filters "Name=name,Values=al2023-ami-2023.*" "Name=architecture,Values=$ARCH" \
+    --output json \
+    | jq -r '.[]|[.ImageId, .Architecture, .Description] | @tsv')
+    echo "# $_ret"
+    echo "export AMI_AL2023_$ARCH=$(echo "$_ret" | awk -F'\t' '{print $1 " #" $3}')" >> "$AMI_ENV_FILE"
     #Ubuntu 22.04, 20.04
-    for VER in jammy focal; do
+    for VER in noble jammy focal; do
         _ret=$(aws ec2 describe-images \
         --region "$REGION" \
         --owners 099720109477 \
         --query 'reverse(sort_by(Images, &CreationDate))[:1]' \
-        --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-$VER-*-server-*" "Name=architecture,Values=$ARCH" \
+        --filters "Name=name,Values=ubuntu/images/hvm-ssd*/ubuntu-$VER-*-server-*" "Name=architecture,Values=$ARCH" \
         --output json \
         | jq -r '.[]|[.ImageId, .Architecture, .Description] | @tsv')
         echo "# $_ret"
