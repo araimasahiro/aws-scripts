@@ -1,0 +1,32 @@
+#セクションの最後には必ず空行を入れてください
+#Please add a blank line at the end of each section
+
+[global]
+CREATOR=XXXXXXXXXXX #必須パラメータ, IAMユーザ名
+USER_DATA=userdata-default.yaml #UserDataを記載したファイル
+
+[default]
+#以下の3つは必須項目
+SUBNET_ID=subnet-xxxxxxxxxxxxxxxx
+SECURITY_GROUP_ID=sg-xxxxxxxxxxxxxxxxx
+KEY_PAIR=key-ec2-pair
+#以下はオプション
+## ATTACHED_ROLE: インスタンスプロファイルとしアタッチするIAMロール
+## SSM SessionManagerで接続する場合，少なくともAmazonSSMManagedInstanceCoreを許可したロールのアタッチが必要
+ATTACHED_ROLE=""
+## 起動時付与するデフォルトNameタグ
+DEFAULT_INSTANCE_NAME="dev-ec2-000"
+#その他タグ指定; 同一キーを指定すると後から指定した方で上書きされる
+tag:Lifetime=1week
+tag:Note="Common Use"
+tag:Backup=no
+tag:AutoStop=yes
+tag:SSM=yes
+#tag:Cost=
+
+[profileA]
+SUBNET_ID=subnet-xxxxxxxxxxxxxxxx
+SECURITY_GROUP_ID=sg-xxxxxxxxxxxxxxxxx
+KEY_PAIR=YYYYYYYYY
+#ATTACHED_ROLE=
+#DEFAULT_INSTANCE_NAME=
