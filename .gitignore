@@ -162,3 +162,4 @@ cython_debug/
 # MacOS
 .DS_Store
 ec2-create.conf
+ami.env
