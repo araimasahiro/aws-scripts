@@ -22,7 +22,6 @@ tag:Note="Common Use"
 tag:Backup=no
 tag:AutoStop=yes
 tag:SSM=yes
-#tag:Cost=
 
 [profileA]
 SUBNET_ID=subnet-xxxxxxxxxxxxxxxx
@@ -30,3 +29,4 @@ SECURITY_GROUP_ID=sg-xxxxxxxxxxxxxxxxx
 KEY_PAIR=YYYYYYYYY
 #ATTACHED_ROLE=
 #DEFAULT_INSTANCE_NAME=
+tag:BillingCode=
