@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-AMI_ENV_FILE="$HOME/code/ami.env"
+SCRIPT_DIR="${0%/*}"
+AMI_ENV_FILE="$SCRIPT_DIR/ami.env"
 REGION="ap-northeast-1"
 
 if [ -e "$AMI_ENV_FILE" ]; then
