@@ -13,5 +13,5 @@ runcmd:
   - unzip awscliv2.zip
   - ./aws/install
   - pip install boto3
-  - echo "no_proxy=192.254.192.254" >> _USER_NAME_/.bashrc
-  - echo "no_proxy=192.254.192.254" >> _USER_NAME_/.zshrc
+  - echo "no_proxy=192.254.192.254" >> /home/_USER_NAME_/.bashrc
+  - echo "no_proxy=192.254.192.254" >> /home/_USER_NAME_/.zshrc
